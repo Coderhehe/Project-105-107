@@ -27,3 +27,46 @@ function speak() {
 utter=new SpeechSynthesisUtterance(speak1+speak2);
 synth.speak(utter);
 }
+
+function pre() {
+    img=document.getElementById("capture");
+    classifier.classify(img,gotResult);
+}
+
+function gotResult(error,result) {
+    if (error) {
+        console.error(error);
+    }
+    else {
+        console.log(result);
+document.getElementById("result_emotion_name").innerHTML=result[0].label;
+document.getElementById("result_emotion_name2").innerHTML=result[1].label;
+prediction1=result[0].label;
+prediction2=result[1].label;
+speak();
+if (result[0].label=="peace") {
+    document.getElementById("result_emotio_name").innerHTML="9996";
+}
+if (result[0].label=="thumbs-down") {
+    document.getElementById("result_emotio_name").innerHTML="&#128078;";
+}
+if (result[0].label=="wait") {
+    document.getElementById("result_emotio_name").innerHTML="&#9757;";
+}
+if (result[0].label=="stop") {
+    document.getElementById("result_emotio_name").innerHTML="&#9995;";
+}
+if (result[1].label=="stop") {
+    document.getElementById("result_emotio_name").innerHTML="&#9995;";
+}
+if (result[1].label=="thumbs-down") {
+    document.getElementById("result_emotio_name2").innerHTML="&#128078;";
+}
+if (result[1].label=="wait") {
+    document.getElementById("result_emotio_name2").innerHTML="&#9757;";
+}
+if (result[1].label=="peace") {
+    document.getElementById("result_emotio_name2").innerHTML="&#9996;";
+}
+    } 
+}
