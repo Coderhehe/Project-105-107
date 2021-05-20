@@ -16,7 +16,7 @@ document.getElementById("result").innerHTML="<img id='capture' src="+data_uri+">
 }
 
 console.log("ml5 version",ml5.version);
-classifier=ml5.imageClassifier("hhttps://teachablemachine.withgoogle.com/models/uZ3pxiPuL/model.json",modelLoaded);
+classifier=ml5.imageClassifier("https://teachablemachine.withgoogle.com/models/uZ3pxiPuL/model.json",modelLoaded);
 function modelLoaded() {
     console.log("Model Loaded!");
 }
